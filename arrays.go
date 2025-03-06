@@ -23,6 +23,9 @@ func main() {
 	sliceArray()
 }
 
+func removeElement(array []string, index int) []string {
+	return append(array[:index], array[index+1:]...)
+}
 func sliceArray( ){
 	// Declare and initialize a slice
 	slice := []int{10, 20, 30, 40, 50}
@@ -36,11 +39,11 @@ func sliceArray( ){
 	fmt.Println("Capacity:", cap(slice))
 	fruitList := []string{"Apple", "Banana", "Mango"}
 	fruitList = append(fruitList, "Orange");
-	fruitList = append(fruitList, "Apple")
-	fruitList = append(fruitList, "Banana")
-	fruitList = append(fruitList, "Mango")
-	fruitList = append(fruitList[:2])	
-
+	fruitList = append(fruitList, "Apple2")
+	fruitList = append(fruitList, "Banana2")
+	fruitList = append(fruitList, "Mango2")
+		
+	fruitList= removeElement(fruitList, 2)
 
 	fmt.Println(fruitList)
 
