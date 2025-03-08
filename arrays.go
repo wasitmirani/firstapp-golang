@@ -62,6 +62,9 @@ func sliceArray( ){
 	highScores = append(highScores, 55,666,99,1000)
 	sort.Ints(highScores)
 	fmt.Println("High Scores:", highScores)
-	fmt.Println("Length:", sort.IntsAreSorted(highScores))
+	fmt.Println("Length:", sort.IntsAreSorted(highScores);
+	
+
+)
 
 }
