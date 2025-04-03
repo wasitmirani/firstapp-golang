@@ -13,6 +13,8 @@ func main() {
 	fmt.Println(greet("John Doe"))
 	fmt.Println(addValues(5, 3, 2, 1))
 	fmt.Println(addNames("John", "Doe", "Jane"))
+	result,response := getNumAndMessage(1,5,4)
+	fmt.Printf("Result: %d, Message: %s\n", result, response)
 }
 
 func sum(a int, b int) int {
@@ -44,4 +46,11 @@ func addValues(values ...int) int{
 
 func addNames(names ...string) string{
 	return fmt.Sprintf("Hello, %s!", strings.Join(names, ", "))
+}
+
+func  getNumAndMessage(num ...int) (int, string) {
+	if len(num) == 0 {
+        return 0, "No numbers provided"
+    }
+    return num[0], fmt.Sprintf("The number is: %d", num[0])
 }
