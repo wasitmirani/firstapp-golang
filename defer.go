@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 
 	fmt.Println("one main start")
-	 myDefer()
+	defer myDefer()
 	 myDefer2()
 	fmt.Println("two main end")
 	fmt.Println("three main end")
