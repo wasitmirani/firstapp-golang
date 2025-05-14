@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 const url="http://www.baidu.com";
@@ -27,5 +28,15 @@ func getRequest() {
 	fmt.Printf("Response Content Length: %d\n", resp.ContentLength)
 	fmt.Printf("Response Request: %T\n", resp)
 	defer resp.Body.Close()
+	databytes, err := ioutil.ReadAll(resp.Body)
+
+	if err != nil {
+		fmt.Println("Error:", err)
+		panic(err)
+		return
+	}
+
+	content := string(databytes)
+	fmt.Println("Response Content:", content)
 
 }
