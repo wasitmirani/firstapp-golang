@@ -10,7 +10,7 @@ import (
 const endpoint="http://www.baidu.com";
 func main() {
 	fmt.Println("welcome to the web request of Go!")
-	// getRequest()
+	getRequest()
 	fmt.Println("welcome to the web request of Go!")
 	getURLData()
 	
@@ -40,7 +40,6 @@ func getURLData(){
 	fmt.Printf("Query Parameters: %s", queryparanms["name"])
 
 }
-
 func getRequest() {
 	resp, err := http.Get(endpoint)
 
