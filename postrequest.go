@@ -1,14 +1,16 @@
 package main
 
-
 import (
-    "fmt"
-    "io/ioutil"
-    "net/http"
+	"fmt"
+	"io"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
 func main(){
     fmt.Println("Hello, World!")
+	performPostRequest()
 }
 
 
@@ -32,4 +34,29 @@ func postRequest() {
 	// Print the response status and body
 	fmt.Println("Response Status:", resp.Status)
 	fmt.Println("Response Body:", string(body))
+}
+
+func performPostRequest(){
+	print("hello")
+	const myurl ="https://oms.zip24.com/dashboard/overview";
+
+	//form data
+	data := url.Values{};
+	data.Add("firstname","wasit")
+	data.Add("lastname","mirani")
+	data.Add("email","miraniwasit2@gmail.com")
+	println("this request for post data")
+	res, err := http.PostForm(myurl,data)
+	if err !=nil{
+
+		panic(err)
+	}
+
+
+	defer res.Body.Close()
+
+	constant, _ := io.ReadAll(res.Body)
+
+	fmt.Println(string(constant))
+
 }
